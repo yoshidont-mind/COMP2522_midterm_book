@@ -38,13 +38,13 @@ public class Driver {
 
         System.out.println("Books in the collection are:");
         for (Book book : collection) {
-            System.out.println(book);
+            System.out.println(book.getTitle() + ", written by " + book.getSurnames());
         }
         System.out.println();
 
         System.out.println("When search for books written by 'Chris', the result is:");
         for (Book book : Book.searchForBooks(collection, "Chris")) {
-            System.out.println(book);
+            System.out.println(book.getTitle() + ", written by " + book.getSurnames());
         }
     }
 }
