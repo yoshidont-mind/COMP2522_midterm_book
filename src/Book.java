@@ -1,5 +1,7 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Objects;
 
 public class Book {
     private final String title;
@@ -48,5 +50,29 @@ public class Book {
 
     public int[] getIsbnNumber() {
         return this.isbnNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "title='" + title + '\'' +
+                ", publisher='" + publisher + '\'' +
+                ", publicationYear=" + publicationYear +
+                ", isbnNumber=" + Arrays.toString(isbnNumber) +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Book book)) return false;
+        return getPublicationYear() == book.getPublicationYear() && Objects.equals(getTitle(), book.getTitle()) && Objects.equals(getPublisher(), book.getPublisher()) && Arrays.equals(getIsbnNumber(), book.getIsbnNumber());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(getTitle(), getPublisher(), getPublicationYear());
+        result = 31 * result + Arrays.hashCode(getIsbnNumber());
+        return result;
     }
 }

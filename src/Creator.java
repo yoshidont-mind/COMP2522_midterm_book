@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Objects;
 
 public abstract class Creator {
     private final ArrayList<String> name;
@@ -26,5 +27,25 @@ public abstract class Creator {
 
     public String getSurname() {
         return surname;
+    }
+
+    @Override
+    public String toString() {
+        return "Creator{" +
+                "name=" + name +
+                ", surname='" + surname + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Creator creator)) return false;
+        return Objects.equals(getName(), creator.getName()) && Objects.equals(getSurname(), creator.getSurname());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getSurname());
     }
 }

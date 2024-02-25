@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Objects;
 
 public final class Textbook extends Book{
     private final ArrayList<Author> authors;
@@ -38,5 +39,27 @@ public final class Textbook extends Book{
 
     public String getUrl() {
         return url;
+    }
+
+    @Override
+    public String toString() {
+        return "Textbook{" +
+                "authors=" + authors +
+                ", numberOfChapters=" + numberOfChapters +
+                ", url='" + url + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Textbook textbook)) return false;
+        if (!super.equals(o)) return false;
+        return getNumberOfChapters() == textbook.getNumberOfChapters() && Objects.equals(getAuthors(), textbook.getAuthors()) && Objects.equals(getUrl(), textbook.getUrl());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getAuthors(), getNumberOfChapters(), getUrl());
     }
 }

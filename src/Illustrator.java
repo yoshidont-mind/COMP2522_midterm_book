@@ -4,4 +4,9 @@ public final class Illustrator extends Creator{
     public Illustrator(ArrayList<String> name, String surname) {
         super(name, surname);
     }
+
+    @Override
+    public String toString() {
+        return "Illustrator{}";
+    }
 }
