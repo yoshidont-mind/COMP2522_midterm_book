@@ -52,12 +52,41 @@ public class Book implements Comparable<Book> {
         return this.isbnNumber;
     }
 
+    public ArrayList<String> getSurnames() {
+        return new ArrayList<String>();
+    }
+
     public boolean isIdentical(final Book other) {
         return this.getIsbnNumber() == other.getIsbnNumber();
     }
 
     public boolean isEquivalent(final Book other) {
         return Objects.equals(this.getTitle(), other.getTitle());
+    }
+
+    public static ArrayList<Book> removeBooks(final ArrayList<Book> collection, final String title) {
+        ArrayList<Book> removedBooks = new ArrayList<Book>();
+        for (Book book : collection) {
+            if (Objects.equals(book.getTitle(), title)) {
+                removedBooks.add(book);
+                collection.remove(book);
+            }
+        }
+        return removedBooks;
+    }
+
+    public static ArrayList<Book> searchForBooks(final ArrayList<Book> collection, final String authorName) {
+        ArrayList<Book> searchResult = new ArrayList<Book>();
+        for (Book book : collection) {
+            for (String surname : book.getSurnames()) {
+                if (Objects.equals(surname, authorName)) {
+                    searchResult.add(book);
+                    break;
+                }
+            }
+        }
+        searchResult.sort(Book::compareTo);
+        return searchResult;
     }
 
     @Override

@@ -2,10 +2,10 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public abstract class Creator {
-    private final ArrayList<String> name;
+    private final String name;
     private final String surname; // must be in name
 
-    public Creator(ArrayList<String> name, String surname) {
+    public Creator(String name, String surname) {
         if (name == null) {
             throw new IllegalArgumentException("name must not be null");
         } else {
@@ -21,7 +21,7 @@ public abstract class Creator {
         }
     }
 
-    public ArrayList<String> getName() {
+    public String getName() {
         return name;
     }
 

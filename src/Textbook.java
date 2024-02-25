@@ -42,6 +42,15 @@ public final class Textbook extends Book{
     }
 
     @Override
+    public ArrayList<String> getSurnames() {
+        ArrayList<String> surnames = new ArrayList<String>();
+        for (Author author : this.getAuthors()) {
+            surnames.add(author.getName());
+        }
+        return surnames;
+    }
+
+    @Override
     public String toString() {
         return "Textbook{" +
                 "authors=" + authors +

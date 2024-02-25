@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Novel extends Book{
@@ -21,6 +22,13 @@ public class Novel extends Book{
 
     public int getNumberOfChapters() {
         return numberOfChapters;
+    }
+
+    @Override
+    public ArrayList<String> getSurnames() {
+        ArrayList<String> surnames = new ArrayList<String>();
+        surnames.add(this.getAuthor().getName());
+        return surnames;
     }
 
     @Override
