@@ -1,3 +1,4 @@
-public final class Author {
+import java.util.ArrayList;
 
+public final class Author extends Creator{
 }
