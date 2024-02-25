@@ -52,6 +52,14 @@ public class Book implements Comparable<Book> {
         return this.isbnNumber;
     }
 
+    public boolean isIdentical(final Book other) {
+        return this.getIsbnNumber() == other.getIsbnNumber();
+    }
+
+    public boolean isEquivalent(final Book other) {
+        return Objects.equals(this.getTitle(), other.getTitle());
+    }
+
     @Override
     public int compareTo(final Book other) {
         return this.title.compareTo(other.title);
@@ -71,13 +79,12 @@ public class Book implements Comparable<Book> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Book book)) return false;
-        return getPublicationYear() == book.getPublicationYear() && Objects.equals(getTitle(), book.getTitle()) && Objects.equals(getPublisher(), book.getPublisher()) && Arrays.equals(getIsbnNumber(), book.getIsbnNumber());
+        return getPublicationYear() == book.getPublicationYear() && Objects.equals(getTitle(), book.getTitle())
+                && Objects.equals(getPublisher(), book.getPublisher());
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(getTitle(), getPublisher(), getPublicationYear());
-        result = 31 * result + Arrays.hashCode(getIsbnNumber());
-        return result;
+        return Objects.hash(getTitle(), getPublisher(), getPublicationYear());
     }
 }
