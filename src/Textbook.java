@@ -45,7 +45,7 @@ public final class Textbook extends Book{
     public ArrayList<String> getSurnames() {
         ArrayList<String> surnames = new ArrayList<String>();
         for (Author author : this.getAuthors()) {
-            surnames.add(author.getName());
+            surnames.add(author.getSurname());
         }
         return surnames;
     }

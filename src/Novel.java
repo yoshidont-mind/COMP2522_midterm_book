@@ -27,7 +27,7 @@ public class Novel extends Book{
     @Override
     public ArrayList<String> getSurnames() {
         ArrayList<String> surnames = new ArrayList<String>();
-        surnames.add(this.getAuthor().getName());
+        surnames.add(this.getAuthor().getSurname());
         return surnames;
     }
 
