@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Book {
+public class Book implements Comparable<Book> {
     private final String title;
     private final String publisher;
     private final int publicationYear;
@@ -50,6 +50,11 @@ public class Book {
 
     public int[] getIsbnNumber() {
         return this.isbnNumber;
+    }
+
+    @Override
+    public int compareTo(final Book other) {
+        return this.title.compareTo(other.title);
     }
 
     @Override
